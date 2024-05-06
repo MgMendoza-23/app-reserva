@@ -1,0 +1,72 @@
+/* home.css */
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Agrega una altura fija al contenedor de la imagen */
+  }
+  
+  .mask {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido del formulario */
+    justify-content: center; /* Centra horizontalmente el contenido del formulario */
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  .text-white {
+    color: #fff;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .reservation-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Aumenta el espacio entre elementos del formulario */
+    background-color: rgba(0, 0, 0, 0.6); /* Agrega un fondo al formulario */
+    padding: 1rem; /* Agrega un poco de espacio alrededor del formulario */
+    border-radius: 0.5rem; /* Agrega bordes redondeados al formulario */
+  }
+  
+  .reservation-form input,
+  .reservation-form select,
+  .reservation-form button {
+    padding: 0.5rem;
+    margin: 0.25rem;
+    border: none;
+    border-radius: 0.25rem;
+  }
+  
+  .reservation-form button {
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .reservation-form button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Ajustes para dispositivos móviles */
+  @media (max-width: 768px) {
+    .reservation-form {
+      width: 90%; /* Ajusta el ancho del formulario en dispositivos móviles */
+    }
+  
+    h1 {
+      font-size: 1.75rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  }
+  

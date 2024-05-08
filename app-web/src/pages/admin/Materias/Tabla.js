@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Axios from "../../../components/Admin/Auth/services/Axios";
-import DatosPersonales from './DatosPersonales'; // Asegúrate de importar el componente DatosPersonales desde su ubicación correcta
+import Axios from "../../../services/Axios";
+import {DatosPersonales} from './DatosPersonales'; // Asegúrate de importar el componente DatosPersonales desde su ubicación correcta
 
-function Tabla() {
+export function Tabla() {
     const [listaDatos, setListaDatos] = useState([]);
     const [datosSeleccionados, setDatosSeleccionados] = useState(null); // Estado para almacenar los datos seleccionados para editar
 
@@ -61,4 +61,3 @@ function Tabla() {
     )
 }
 
-export default Tabla;

@@ -3,7 +3,11 @@ import {Route, Routes} from "react-router-dom"
 import {AdminLayouts} from "../layouts";
 import {Auth, Users, Materias} from "../pages/admin";
 import  {useAuth} from "../hooks";
-import {Registro} from "../components/Admin/Auth/Register"
+import {Registro} from "../components/Admin/Auth/Register";
+import { Perfil } from '../pages/admin';
+import { Tabla } from '../pages/admin/Materias';
+import { DatosPersonales } from '../pages/admin/Materias';
+import { RegistrReserv } from '../pages/admin/Materias/reserva';
 //const user={username:"dany"};
 //const user=null;
 export function AdminRouter() {
@@ -30,6 +34,10 @@ export function AdminRouter() {
              <Route key={path} exact path={path} element={loadLayout(AdminLayouts,Users)}/>
            ))}
           <Route exact path="/admin/materias" element={loadLayout(AdminLayouts,Materias)}/>
+          <Route exact path="/admin/perfil" element={loadLayout(AdminLayouts, Perfil)}/>
+          <Route exact path="/admin/tabla" element={loadLayout(AdminLayouts, Tabla)}/>
+          <Route exact path="/admin/datos" element={loadLayout(AdminLayouts, DatosPersonales)}/>
+          <Route exact path="/admin/reserva" element={loadLayout(AdminLayouts, RegistrReserv)}/>
            </>
           )
         }

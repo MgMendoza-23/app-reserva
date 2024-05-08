@@ -12,7 +12,7 @@ export function AdminMenu() {
   const isAdmin = role === "admin";
   const {logout}=useAuth();
   const navigate=useNavigate();
-
+  const {user}=useAuth();
   const cerrarSesion=()=>{
     logout();
     navigate("/admin")
@@ -48,32 +48,33 @@ export function AdminMenu() {
               to="/admin/materias"
               defaultActiveKey={isCurrentPath("/admin/materias")} className="fa nav-link" >Menú</Nav.Link>
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Más
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                  <Nav.Link
-              as={Link}
-              to="/admin/materias"
-              defaultActiveKey={isCurrentPath("/admin/materias")} className="dropdown-item">Notificaciones
-                    </Nav.Link></li>
-                  <li><Link class="dropdown-item" to='/datos'>Registrar Datos</Link></li>
-                  <li><Link className="dropdown-item" to="/Tabla">Ver informacion </Link></li>
-                  <li><Link className="dropdown-item" to="/Perfil">Perfil</Link></li>
-                </ul>
-              </li>
+            
+      
+                  <li><Nav.Link 
+                  as={Link}
+                  to="/admin/datos"
+                  defaultActiveKey={isCurrentPath("/admin/datos")}
+                  className="fa nav-link justify-content-center" >Agregar usuarios</Nav.Link></li>
+
+                  <li><Nav.Link 
+                  as={Link}
+                  to="/admin/tabla"
+                  defaultActiveKey={isCurrentPath("/admin/tabla")} 
+                  className="fa nav-link justify-content-center" >Ver datos del usuario </Nav.Link></li>
+                  
+                
+              
             </div> 
           </ul><li className="nav-item">
                 </li>
                 <form className="d-flex" role="search">
             <div className="d-flex align-items-center">
             <Button variant='danger' onClick={cerrarSesion} className=" px-3 me-2"> Cerrar sesion</Button>
-              <Link to="/perfil">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp" alt="avatar"
-                  class="img-fluid rounded-circle me-3" width="35"/>
-              </Link>
+            <li><Nav.Link 
+                  as={Link}
+                  to="/admin/perfil"
+                  defaultActiveKey={isCurrentPath("/admin/perfil")}
+                  className="fa nav-link justify-content-center" >{user.nomusuario}</Nav.Link></li>
             </div>
           </form>
               </div>

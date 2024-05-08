@@ -14,7 +14,7 @@ export function Login() {
   const {login} = useAuth();
   const navigate = useNavigate();
   const handleRegistroClick = () => {
-    navigate('/registro'); // Navegar a la ruta '/registro' al hacer clic en el botón de Registro
+    navigate('/registro'); 
   };
 
   const formik=useFormik({
@@ -31,9 +31,7 @@ export function Login() {
         console.error(error);
       }
     }
-
-    
-
+ 
   })
   return (
     <Form noValidate onSubmit={formik.handleSubmit}>

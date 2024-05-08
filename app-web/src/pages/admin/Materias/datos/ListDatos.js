@@ -15,10 +15,10 @@ export const lista=[
     },
     {
         "id":"03",
-        "nombre":"Taquerias",
-        "tel":"Al pastor, de asada, empanizado, etc.",
-        "direccion":"Balancan",
-        "imag":"https://th.bing.com/th/id/OIP.JUwzf6L_8Hn4QIuCQZz0iQHaEz?rs=1&pid=ImgDetMain"
+        "nombre":"La Ceiba Hyatt Regency",
+        "tel":"Mexicana, Internacional",
+        "direccion":" Av. Juárez 106 Colonia Lindavista, Villahermosa 86000 México",
+        "imag":"https://media-cdn.tripadvisor.com/media/photo-m/1280/22/85/4f/5b/privado-bugambilia.jpg"
 
     },
     {

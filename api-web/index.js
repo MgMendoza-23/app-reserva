@@ -1,3 +1,5 @@
+
+
 const mongoose =require('mongoose');
 
 const {DB_HOST,DB_NAME,DB_PASSWORD,DB_USER, IP_SERVER}=require('./constantes');
@@ -13,4 +15,4 @@ mongoose.connect(dbURL)
 
 app.listen(PORT, ()=>{
     console.log(`http://${IP_SERVER}:${PORT}/api`);
-})        
+})

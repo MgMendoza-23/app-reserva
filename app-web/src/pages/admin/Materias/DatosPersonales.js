@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Axios from "../../../components/Admin/Auth/services/Axios";
+import Axios from "../../../services/Axios";
 
-export default function DatosPersonales({ datos, buscarDatos }) {
+export function DatosPersonales({ datos, buscarDatos }) {
   const [datosForm, setDatosForm] = useState({
     nombre: "",
     direccion: "",

@@ -1,13 +1,20 @@
 import React,{ useState } from 'react';
+import {Nav} from "react-bootstrap";
+import {Link, useLocation,useNavigate} from "react-router-dom";
 import "./users.css";
 import Coloso from '../Restaurantes/Coloso';
+import { NavLink } from 'react-bootstrap';
 export function Users() {
   const [date, setDate] = useState('2024-03-22');
   const [time, setTime] = useState('19:00');
   const [people, setPeople] = useState('2');
   const [location, setLocation] = useState('');
   const [showForm, setShowForm] = useState(false);
-  
+  const { pathname } = useLocation();
+  const isCurrentPath = (path) => {
+    return path === pathname;
+  }
+
 
   const handleReservationClick = (e) => {
     e.stopPropagation();
@@ -40,21 +47,51 @@ export function Users() {
                       <option>6 personas</option>
                     </select>
                     <input type="text" placeholder="Ubicación, restaurante o comida" value={location} onChange={(e) => setLocation(e.target.value)} />
-                    <button onClick={handleReservationClick}>¡Hazlo!</button>
-                  
+                    <button >
+                      <Nav.Link
+                      as={Link}
+                      to="/admin/reserva"
+                      defaultActiveKey={isCurrentPath("/admin/reserva")}>¡Hazlo!</Nav.Link></button>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        
       </header>
-
+      
       <main>
         <div className="container my-5 py-5">
-        <Coloso/>
-        </div>
+        <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-w/1c/20/0d/13/tostadas-bar-capitan.jpg" class="d-block w-100"  width={300} alt="..."/>
+    </div>
+    <div class="carousel-item">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-o/12/86/c8/62/el-corte-favorito-de.jpg" class="d-block w-100" alt="..."/>
+      
+    </div>
+    <div class="carousel-item">
+      <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/29/d0/93/33/somos-sabor.jpg" class="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<Coloso/></div>
+        
       </main>
+      
     </div>
   )
 }

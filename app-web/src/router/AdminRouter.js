@@ -8,6 +8,7 @@ import { Perfil } from '../pages/admin';
 import { Tabla } from '../pages/admin/Materias';
 import { DatosPersonales } from '../pages/admin/Materias';
 import { RegistrReserv } from '../pages/admin/Materias/reserva';
+import Mariscos from '../pages/admin/Info/Mariscos';
 //const user={username:"dany"};
 //const user=null;
 export function AdminRouter() {
@@ -38,6 +39,7 @@ export function AdminRouter() {
           <Route exact path="/admin/tabla" element={loadLayout(AdminLayouts, Tabla)}/>
           <Route exact path="/admin/datos" element={loadLayout(AdminLayouts, DatosPersonales)}/>
           <Route exact path="/admin/reserva" element={loadLayout(AdminLayouts, RegistrReserv)}/>
+          <Route exact path="/admin/marisco" element={loadLayout(AdminLayouts, Mariscos)}/>
            </>
           )
         }

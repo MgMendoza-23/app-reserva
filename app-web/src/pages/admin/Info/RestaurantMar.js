@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, Rate, Badge } from 'antd';
 
-
-const RestaurantColosso = ({ data }) => {
+import "./reserv.css"
+const RestaurantMar = ({ data }) => {
   return (
     <div className="">
       <Card title={data.name} extra={<Badge count={data.reviewsCount} showZero />}>
@@ -29,4 +29,4 @@ const RestaurantColosso = ({ data }) => {
   );
 };
 
-export default RestaurantColosso;
+export default RestaurantMar;

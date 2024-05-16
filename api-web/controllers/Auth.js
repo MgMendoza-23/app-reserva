@@ -5,11 +5,15 @@ const jwt = require("../utils/jwt");
 async function Registrar(req, res) {
     const { nomusuario, apellidos, email, password } = req.body;
     try {
-        if (!email) {
+        if (!email || !nomusuario || !apellidos || !password) {
             return res.status(400).send({ msg: "El email es obligatorio" });
         }
-        if (!password) {
-            return res.status(400).send({ msg: "El password es obligatorio" });
+        
+
+        // Verificar si el correo ya está registrado
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(409).send({ msg: "El correo ya está registrado" });
         }
 
         const usuario = new User({
@@ -37,6 +41,7 @@ async function Registrar(req, res) {
         });
     }
 }
+
 
 async function Login(req, res) {
     const { email, password } = req.body;

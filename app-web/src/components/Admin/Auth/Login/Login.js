@@ -28,7 +28,7 @@ export function Login() {
       authCtr.setRefreshToken(response.refresh);
       login(response.access);
       } catch (error) {
-        console.error(error);
+        alert("Correo y/o contraseña incorecta")
       }
     }
  

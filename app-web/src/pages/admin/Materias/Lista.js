@@ -1,10 +1,14 @@
 import React from 'react'
 import './lista.css';
-
+import {Nav} from "react-bootstrap";
+import {Link, useLocation,useNavigate} from "react-router-dom";
+import Mariscos from '../Info/Mariscos';
 export function Lista(props) {
   const { nombre, telefono, direccion, imagenes } = props;
-
-
+  const { pathname } = useLocation();
+  const isCurrentPath = (path) => {
+    return path === pathname;
+  }
   return (
     
     <>
@@ -30,12 +34,16 @@ export function Lista(props) {
               <small class="text-body-secondary"><p type="button"
                class="btn btn-info"
                to="#">
-                
-                Leer más..</p></small>
+                <Nav.Link
+              as={Link}
+              to="/admin/marisco"
+               className="nav-link active" aria-current="page" >Leer más..</Nav.Link>
+                </p></small>
             </div>
           </div>
         </div>
-     
+        
     </>
+    
   );
 }

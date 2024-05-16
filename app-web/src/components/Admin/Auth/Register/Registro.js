@@ -1,9 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import {Axios} from "../services";
-export const Registro = ({ onRegister, updateProfile }) => {
+export const Registro = () => {
     const navigate = useNavigate();
     const [date, setDate] = useState('2024-03-22');
+    const [error, setError] = useState('');
+    const [errorNombre, setErrorNombre] = useState('');
+    const [errorApellidos, setErrorApellidos] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+    const [errorContraseña, setErrorContraseña] = useState('');
+
+
     const [formData, setFormData] = useState({
       nomusuario: '',
       apellidos: '',
@@ -18,6 +25,7 @@ export const Registro = ({ onRegister, updateProfile }) => {
         [name]: value
       }));
     };
+    
   
   /*  const handleSubmit = async (e) => {
       e.preventDefault();
@@ -32,15 +40,39 @@ export const Registro = ({ onRegister, updateProfile }) => {
       }
     }; */
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await Axios.post('/auth/registro', formData);
-          console.log(response.data);
-          navigate('/admin'); 
-        } catch (error) {
-          console.error('Error al registrar:', error);
+      e.preventDefault();
+      try {
+        const response = await Axios.post('/auth/registro', formData);
+        console.log(response.data);
+        navigate('/admin');
+      } catch (error) {
+        if (error.response && error.response.status === 409) {
+          setError('El correo ya está registrado');
+        } else {
+          console.error("Error al registrar", error);
         }
-      };
+      }
+    };
+
+    const handleBlur = (e) => {
+      const { name, value } = e.target;
+      switch (name) {
+        case 'nomusuario':
+          setErrorNombre(value.trim() ? '' : `El campo es obligatorio`);
+          break;
+        case 'apellidos':
+          setErrorApellidos(value.trim() ? '' : `El campo es obligatorio`);
+          break;
+        case 'email':
+          setErrorEmail(value.trim() ? '' : `El campo es obligatorio`);
+          break;
+        case 'password':
+          setErrorContraseña(value.trim() ? '' : `El campo es obligatorio`);
+          break;
+        default:
+          break;
+      }
+    };
     return (
       <div className="bg-color">
       <div className="container">
@@ -60,9 +92,11 @@ export const Registro = ({ onRegister, updateProfile }) => {
                           name="nomusuario"
                           value={formData.nomusuario}
                           onChange={handleChange}
+                          onBlur={handleBlur}
                           placeholder="Nombre de usuario"
                           required
                         />
+                        {errorNombre && <div className="invalid-feedback" style={{display: 'block'}}>{errorNombre}</div>}
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
@@ -74,9 +108,11 @@ export const Registro = ({ onRegister, updateProfile }) => {
                           name="apellidos"
                           value={formData.apellidos}
                           onChange={handleChange}
+                          onBlur={handleBlur}
                           placeholder="Apellidos"
                           required
                         />
+                        {errorApellidos && <div className="invalid-feedback" style={{display: 'block'}}>{errorApellidos}</div>}
                       </div>
                     </div>
                   </div>
@@ -112,9 +148,12 @@ export const Registro = ({ onRegister, updateProfile }) => {
                           className="form-control form-control-lg" 
                           name="email"
                           value={formData.email}
+                          onBlur={handleBlur}
                           onChange={handleChange}
                           required
                         />
+                        {errorEmail && <div className="invalid-feedback" style={{display: 'block'}}>{errorEmail}</div>}
+                         {error && <div className="invalid-feedback" style={{display: 'block'}}>{error}</div>}
                       </div>
                     </div>
                     <div className="col-md-6 mb-4 pb-2">
@@ -131,8 +170,10 @@ export const Registro = ({ onRegister, updateProfile }) => {
                         <input 
                           className="form-control form-control-lg" 
                           type="password"
+                          onBlur={handleBlur}
                           required 
                         />
+                        {errorContraseña && <div className="invalid-feedback" style={{display: 'block'}}>{errorContraseña}</div>}
                       </div>
                     </div>
                     <div className="col-md-6 mb-4 pb-2">
@@ -142,9 +183,11 @@ export const Registro = ({ onRegister, updateProfile }) => {
                         name="password"
                         type="password"
                         value={formData.password}
-                        onChange={handleChange} 
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                         className="form-control form-control-lg" 
                         required />
+                        {errorContraseña && <div className="invalid-feedback" style={{display: 'block'}}>{errorContraseña}</div>}
                       </div>
                     </div>
                   </div>

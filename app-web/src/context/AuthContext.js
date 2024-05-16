@@ -49,18 +49,6 @@ export function AuthProvider({children}){
             console.error(error);
         }
     }
-    const updateProfileImage = async (newProfileImage) => {
-        try {
-            // Aquí enviarías la nueva imagen al servidor
-            // y luego actualizarías la imagen en el estado del usuario
-            setUser(prevUser => ({
-                ...prevUser,
-                profileImage: newProfileImage
-            }));
-        } catch (error) {
-            console.error(error);
-        }
-    }
 
     const relogin=async(refreshToken)=>{
         try {

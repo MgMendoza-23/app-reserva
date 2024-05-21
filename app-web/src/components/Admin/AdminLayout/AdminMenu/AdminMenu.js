@@ -54,13 +54,13 @@ export function AdminMenu() {
                   as={Link}
                   to="/admin/datos"
                   defaultActiveKey={isCurrentPath("/admin/datos")}
-                  className="fa nav-link justify-content-center" >Agregar usuarios</Nav.Link></li>
+                  className="fa nav-link justify-content-center" >Reservar</Nav.Link></li>
 
                   <li><Nav.Link 
                   as={Link}
                   to="/admin/tabla"
                   defaultActiveKey={isCurrentPath("/admin/tabla")} 
-                  className="fa nav-link justify-content-center" >Ver datos del usuario </Nav.Link></li>
+                  className="fa nav-link justify-content-center" >Mis reservas </Nav.Link></li>
                   
                 
               

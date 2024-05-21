@@ -55,21 +55,21 @@ export function Perfil({ userInfo }) {
               </div>
               <div className="row g-2">
                 <div className="col mb-2">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+                  <img src="https://media-cdn.tripadvisor.com/media/photo-o/06/1c/84/b8/la-lupita.jpg"
                     alt="image 1" className="w-100 rounded-3" />
                 </div>
                 <div className="col mb-2">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
+                  <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/16/ea/7f/e2/pulpo-a-las-brasas-con.jpg"
                     alt="image 1" className="w-100 rounded-3" />
                 </div>
               </div>
               <div className="row g-2">
                 <div className="col">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                  <img src="https://media-cdn.tripadvisor.com/media/photo-w/19/f0/4f/c6/taco-michoacano.jpg"
                     alt="image 1" className="w-100 rounded-3" />
                 </div>
                 <div className="col">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                  <img src="https://media-cdn.tripadvisor.com/media/photo-o/16/c1/2c/08/20190310-173703-largejpg.jpg"
                     alt="image 1" className="w-100 rounded-3" />
                 </div>
               </div>

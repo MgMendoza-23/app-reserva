@@ -69,4 +69,7 @@
       font-size: 1rem;
     }
   }
-  
+  .carousel-container {
+    max-width: 1080px; /* Ajusta este valor según tus necesidades */
+    margin: 0 auto;
+  }

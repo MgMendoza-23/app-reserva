@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "../../../services/Axios";
-
+import { RegistrReserv } from "./reserva";
+import "./reserv.css"
 export function DatosPersonales({ datos, buscarDatos }) {
   const [datosForm, setDatosForm] = useState({
     nombre: "",
@@ -66,7 +67,7 @@ export function DatosPersonales({ datos, buscarDatos }) {
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title">Datos Personales</h5>
+        <h5 className="card-title">Rellena el formulario</h5>
         <form
           className="row g-3 needs-validation"
           onSubmit={onSubmit}
@@ -79,7 +80,7 @@ export function DatosPersonales({ datos, buscarDatos }) {
               className="form-control"
               value={datosForm.nombre}
               onChange={onChange}
-              placeholder="Nombre"
+              placeholder="Nombre del restaurante"
               required
             />
           </div>
@@ -90,7 +91,7 @@ export function DatosPersonales({ datos, buscarDatos }) {
               className="form-control"
               value={datosForm.direccion}
               onChange={onChange}
-              placeholder="Dirección"
+              placeholder="Direccion"
               required
             />
             <div className="valid-feedback">Looks good!</div>
@@ -104,7 +105,7 @@ export function DatosPersonales({ datos, buscarDatos }) {
                 className="form-control"
                 value={datosForm.correo}
                 onChange={onChange}
-                placeholder="Dirección de correo"
+                placeholder="Correo electronico"
                 required
               />
               <div className="invalid-feedback">Por favor, ingresa un correo válido.</div>
@@ -132,13 +133,23 @@ export function DatosPersonales({ datos, buscarDatos }) {
               required
             />
           </div>
+          
+          <div>
+          <RegistrReserv/>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button className="btn btn-primary" type="submit">
-              Enviar
-            </button>
+          <button className="w-100 btn btn-primary btn-lg" type="submit">Continuar con el proceso de pago</button>
+          </div>
           </div>
         </form>
       </div>
+      <footer className="my-5 pt-5 text-muted text-center text-small">
+        <p className="mb-1">&copy; 2017–2022 Company Name</p>
+        <ul className="list-inline">
+          <li className="list-inline-item"><a href="#">Privacy</a></li>
+          <li className="list-inline-item"><a href="#">Terms</a></li>
+          <li className="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
     </div>
   );
 }

@@ -10,18 +10,15 @@ export function Tabla() {
         const buscar = await Axios.get("/datos/buscar");
         setListaDatos(buscar.data);
     }
-
     const actualizarDatos = (datos) => {
         setDatosSeleccionados(datos);
         buscarDatos();
     }
-
     const eliminarDatos = async (id) => {
         const eliminar = await Axios.delete(`/datos/delete/${id}`);
         alert("Datos eliminados");
         buscarDatos(); // Actualizar la lista después de eliminar
     }
-
     useEffect(() => {
         buscarDatos();
     }, [])
@@ -32,8 +29,8 @@ export function Tabla() {
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Telefono</th>
+                        <th scope="col">Nombre del restaurante</th>
+                        <th scope="col">Total de personas</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Modificar</th>
                         <th scope="col">Eliminar</th>
